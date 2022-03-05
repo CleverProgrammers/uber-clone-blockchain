@@ -9,12 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@faker-js/faker": "^6.0.0-alpha.7",
+    "@sanity/client": "^3.1.0",
+    "ethers": "^5.5.4",
+    "mapbox-gl": "^2.7.0",
     "next": "12.1.0",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-icons": "^4.3.1"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.2",
     "eslint": "8.10.0",
-    "eslint-config-next": "12.1.0"
+    "eslint-config-next": "12.1.0",
+    "postcss": "^8.4.7",
+    "tailwindcss": "^3.0.23"
   }
 }
