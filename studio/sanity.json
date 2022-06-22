@@ -1,11 +1,11 @@
 {
   "root": true,
+  "api": {
+    "projectId": "ie5z6t1y",
+    "dataset": "production"
+  },
   "project": {
     "name": "uber-blockchain"
-  },
-  "api": {
-    "projectId": "jl5yrfd1",
-    "dataset": "production"
   },
   "plugins": [
     "@sanity/base",

@@ -1,12 +1,12 @@
-import Image from 'next/image'
-import ethLogo from '../assets/eth-logo.png'
-import { useEffect, useContext, useState } from 'react'
-import { UberContext } from '../context/uberContext'
+import Image from "next/image";
+import ethLogo from "../assets/eth-logo.png";
+import { useEffect, useContext, useState } from "react";
+import { UberContext } from "../context/uberContext";
 
 const style = {
   wrapper: `h-full flex flex-col`,
   title: `text-gray-500 text-center text-xs py-2 border-b`,
-  carList: `flex flex-col flex-1 overflow-scroll`,
+  carList: `flex flex-col flex-1 overflow-auto scrollbar-hide`,
   car: `flex p-3 m-2 items-center border-2 border-white`,
   selectedCar: `border-2 border-black flex p-3 m-2 items-center`,
   carImage: `h-14`,
@@ -15,28 +15,28 @@ const style = {
   time: `text-xs text-blue-500`,
   priceContainer: `flex items-center`,
   price: `mr-[-0.8rem]`,
-}
+};
 
 const RideSelector = () => {
-  const [carList, setCarList] = useState([])
+  const [carList, setCarList] = useState([]);
   const { selectedRide, setSelectedRide, setPrice, basePrice } =
-    useContext(UberContext)
+    useContext(UberContext);
 
-  console.log(basePrice)
+  console.log(basePrice);
 
   useEffect(() => {
-    ;(async () => {
+    (async () => {
       try {
-        const response = await fetch('/api/db/getRideTypes')
+        const response = await fetch("/api/db/getRideTypes");
 
-        const data = await response.json()
-        setCarList(data.data)
-        setSelectedRide(data.data[0])
+        const data = await response.json();
+        setCarList(data.data);
+        setSelectedRide(data.data[0]);
       } catch (error) {
-        console.error(error)
+        console.error(error);
       }
-    })()
-  }, [])
+    })();
+  }, []);
 
   return (
     <div className={style.wrapper}>
@@ -51,8 +51,10 @@ const RideSelector = () => {
                 : style.car
             }`}
             onClick={() => {
-              setSelectedRide(car)
-              setPrice(((basePrice / 10 ** 5) * car.priceMultiplier).toFixed(5))
+              setSelectedRide(car);
+              setPrice(
+                ((basePrice / 10 ** 5) * car.priceMultiplier).toFixed(5)
+              );
             }}
           >
             <Image
@@ -75,7 +77,7 @@ const RideSelector = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default RideSelector
+export default RideSelector;
